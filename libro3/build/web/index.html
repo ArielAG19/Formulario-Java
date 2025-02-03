@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Libro de Visitas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: plum;
+        }
+        
+        h2 {
+            color: aqua;
+            text-align: center;
+            text-decoration: underline;
+        }
+        
+        form {
+            margin: 20px auto;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #confirmacion {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 5px;
+        }
+    </style>
+    </head>
+    <body>
+        <div>
+            <h2>Libro de Visitas - Iglesia de Candonga</h2>
+            <form action="LibroVisitasServlet1" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" required><br>
+                
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="apellido" id="apellido" required><br>
+                
+                <label for="direccion">Dirección de Procedencia:</label>
+                <input type="text" name="direccion" id="direccion" required><br>
+                
+                <label for="edad">Edad:</label>
+                <input type="number" name="edad" id="edad" required><br>
+                
+                <label for="ocupacion">Ocupación:</label>
+                <input type="text" name="ocupacion" id="ocupacion" required><br>
+                
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+        
+        
+        <div id="confirmacion" style="display: none;">
+            <h3>¡Gracias por registrar tu visita!</h3>
+            <p>Tus datos han sido registrados exitosamente.</p>
+        </div>
+        
+        <script>
+            // Mostrar el div de confirmación después de enviar el formulario
+          
+    // Mostrar el div de confirmación después de enviar el formulario
+    var formulario = document.querySelector('form');
+    formulario.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar el envío del formulario
+
+        var nombre = document.getElementById('nombre').value;
+        var apellido = document.getElementById('apellido').value;
+        var direccion = document.getElementById('direccion').value;
+        var edad = document.getElementById('edad').value;
+        var ocupacion = document.getElementById('ocupacion').value;
+
+        var confirmacion = document.getElementById('confirmacion');
+        confirmacion.innerHTML = '<h3>¡Gracias por registrar tu visita!</h3>' +
+                                 '<p>Tus datos han sido registrados exitosamente.</p>' +
+                                 '<p>Nombre: ' + nombre + '</p>' +
+                                 '<p>Apellido: ' + apellido + '</p>' +
+                                 '<p>Dirección: ' + direccion + '</p>' +
+                                 '<p>Edad: ' + edad + '</p>' +
+                                 '<p>Ocupación: ' + ocupacion + '</p>';
+
+        confirmacion.style.display = 'block';
+    });
+
+
+        </script>
+    </body>
+</html>
